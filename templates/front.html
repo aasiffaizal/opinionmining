@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Opinion Mining</title>
+        <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/chart.css' %}">
+        <script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js  "></script>
+        <script src="{% static  'js/jquery.drawDoughnutChart.js' %} "></script>
+    </head>
+    <body>
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <h3 class="masthead-brand">Opinion Mining</h3>
+                            <nav>
+                                <ul class="nav masthead-nav">
+                                    <li class="active"><a href="">Home</a></li>
+                                    <li><a href="#">Login</a></li>
+                                    <li><a href="#">Signup</a></li>
+                                </ul>
+                        </nav>
+                        </div>
+                    </div>    
+                    </div>
+                    <div class="inner cover">
+                        <h1 class="cover-heading">Shoot!</h1>
+                        <p class="lead">Discover the opinion around the world!</p>
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <form action="{% url 'search' %}" method="post">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <div class="input-group-btn search-panel">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <span id="search_concept">Filter by</span> <span class="caret"></span>
+                                    </button> 
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">YouTube</a></li>
+                                        <li><a href="#">Reddit</a></li>
+                                        <li><a href="#">Amazon</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#all">Anything</a></li>
+                                    </ul>
+                                </div>
+                                <!-- <input type="text" class="form-control" name="x" placeholder="."> -->
+                                {{ form.as_p }}
+                                <!-- {{ form }} -->
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit" ><span class="glyphicon glyphicon-search">
+                                    </span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="col span-1-of-2">
+                    <ul class="footer-nav">
+                        <li><a href="#">About Us</a> </li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a> </li>
+                    </ul>
+                </div>
+                <div class="col span-1-of-2">
+                    <ul class="social-links">
+                        <li><a href="#"><i class="ion-social-facebook"></i></a> </li>
+                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                        <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <p>
+                    Copyright &copy; 2017 by The Help. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
